@@ -1,6 +1,60 @@
 body {
-  background-color: cornsilk;
-
-  font-family: sans-serif;
+  background-color: white;
+  font-family: 'Courier New'
 }
 
+.add-note {
+  border: 0;
+  font-family: 'Courier New';
+  background: white;
+  border: 1px solid #eaeaea;
+  padding: 10px 20px;
+  font-size: 16px;
+  font-weight: bold;
+  cursor: pointer;
+}
+.add-note:hover {
+  background: #eaeaea;
+}
+
+.notes-container {
+  margin: 0 auto;
+  width: 80%;
+  max-width: 500px;
+}
+
+.notes-list {
+  float: left;
+  width: 100%;
+  list-style-type: none;
+  margin: 0 auto 20px;
+  padding: 0;
+}
+
+.notes-note {
+  margin: 5px 0;
+  float: left;
+  width: 100%;
+}
+
+.note-delete {
+  margin-right: 5px;
+  border: 1px solid #eaeaea;
+  border-radius: 50%;
+  background: white;
+  color: #999;
+  font-size: 10px;
+  line-height: 10px;
+  cursor: pointer;
+}
+
+.note-delete:hover {
+  background: red;
+  color: white;
+}
+
+.note-editing {
+  font-size: 18px;
+  font-family: 'Courier New';
+  padding: 5px 10px;
+}

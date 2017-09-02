@@ -9,11 +9,27 @@ export default class App extends Component {
       notes: [
         {
           id: uuid.v4(),
-          task: 'Learn react'
+          task: 'Add tasks'
         },
         {
           id: uuid.v4(),
-          task: 'Do laundry'
+          task: 'Edit tasks'
+        },
+        {
+          id: uuid.v4(),
+          task: 'Delete tasks'
+        },
+        {
+          id: uuid.v4(),
+          task: 'Wash'
+        },
+        {
+          id: uuid.v4(),
+          task: 'Rinse'
+        },
+        {
+          id: uuid.v4(),
+          task: 'Repeat'
         }
       ]
     }
@@ -21,14 +37,15 @@ export default class App extends Component {
   render () {
     const {notes} = this.state;
     return (
-      <div>
-        <button onClick={this.addNote}>Add Note</button>      
+      <div className="notes-container">
+        <h1>To-Dos in React</h1>
+        <p>Double click a task to edit, press enter to save</p>
         <Notes
           notes={notes}
           onNoteClick={this.activateNoteEdit}
           onEdit={this.editNote}
-          onDelete={this.deleteNote}
-        />
+          onDelete={this.deleteNote} />
+        <button className="add-note" onClick={this.addNote}>Add Task</button>      
       </div>    
     );
   }

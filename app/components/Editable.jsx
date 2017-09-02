@@ -17,6 +17,7 @@ class Edit extends React.Component {
   render() {
     const {value, onEdit, ...props} = this.props;
     return <input 
+        className="note-editing"
         type="text"
         autoFocus={true}
         defaultValue={value}
