@@ -1,8 +1,9 @@
 import React, { Component } from 'react';
 import uuid from 'uuid';
 import Notes from './Notes';
+import connect from '../libs/connect';
 
-export default class App extends Component {
+class App extends React.Component {
   constructor(props) {
     super(props);
     this.state = {
@@ -39,12 +40,13 @@ export default class App extends Component {
     return (
       <div className="notes-container">
         <h1>To-Dos in React</h1>
-        <p>Double click a task to edit, press enter to save</p>
+        <p>Click a task to edit, press enter to save.</p>
         <Notes
           notes={notes}
           onNoteClick={this.activateNoteEdit}
           onEdit={this.editNote}
           onDelete={this.deleteNote} />
+        {this.props.test}
         <button className="add-note" onClick={this.addNote}>Add Task</button>      
       </div>    
     );
@@ -93,3 +95,7 @@ export default class App extends Component {
     });
   }
 }
+
+export default connect(() => ({
+  test: 'test'
+}))(App)
