@@ -15,7 +15,11 @@ const App = ({LaneActions, lanes}) => {
   return (
     <div>
       <button className="add-lane" onClick={addLane}>Create a lane</button>
-      <Lanes lanes={lanes} />
+      <div className="lane-container">
+        <div className="lane-inner">
+          <Lanes lanes={lanes} />
+        </div>
+      </div>
     </div>
   );
 };
