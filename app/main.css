@@ -1,60 +1,106 @@
 body {
-  background-color: white;
-  font-family: 'Courier New'
+  background-color: #eaeaea;
+  font-family: 'Helvetica', 'Arial', sans serif;
+  padding: 20px;
 }
 
 .add-note {
-  border: 0;
-  font-family: 'Courier New';
-  background: white;
-  border: 1px solid #eaeaea;
-  padding: 10px 20px;
-  font-size: 16px;
+  background-color: #fdfdfd;
+  border: 1px solid #ccc;
+}
+
+.add-lane {
+  margin: 0 0 20px;
+}
+
+.add-lane:hover {
+  background: green;
+  color: white;
+}
+
+.lane {
+  display: inline-block;
+  background-color: #fff;
+  box-shadow: 0 0 5px rgba(0,0,0,0.125);
+  border-radius: 0.5em;
+  width: 300px;
+  margin: 0 20px 20px 0;
+  vertical-align: top;
+}
+
+.lane-header {
+  overflow: auto;
+  padding: 1em;
+  color: #fff;
+  background-color: #333;
+  border-top-left-radius: 0.5em;
+  border-top-right-radius: 0.5em;
   font-weight: bold;
+  font-size: 18px;
+}
+
+.lane-name {
+  float: left;
+}
+
+.lane-add-note {
+  width: 100%;
+  display: block;
+  float: left;
+  margin-top: 10px;
+}
+
+.lane-delete {
+  float: right;
+  visibility: hidden;
+}
+.lane-header:hover .lane-delete {
+  visibility: visible;
+}
+
+.add-lane, .lane-add-note button {
+  font-size: 14px;
+  border: 1px solid #999;
+  border-radius: 5px;
+  font-weight: bold;
+  font-family: 'Helvetica', 'Arial', sans serif;
+  padding: 10px 20px;
+  color: #333;
+  background: white;
   cursor: pointer;
 }
-.add-note:hover {
-  background: #eaeaea;
+
+.add-lane:hover, .lane-add-note button:hover {
+  background: green;
+  color: white;
+  border-color: white;
 }
 
-.notes-container {
-  margin: 0 auto;
-  width: 80%;
-  max-width: 500px;
-}
+.lane-delete button {
+  padding: 0;
+  cursor: pointer;
+  color: white;
+  background-color: rgba(0, 0, 0, 0);
+  border: 0;
+}  
 
 .notes-list {
-  float: left;
-  width: 100%;
   list-style-type: none;
-  margin: 0 auto 20px;
+  margin: 20px;
   padding: 0;
 }
 
 .notes-note {
-  margin: 5px 0;
-  float: left;
-  width: 100%;
+  margin: 10px 0;
 }
 
 .note-delete {
-  margin-right: 5px;
-  border: 1px solid #eaeaea;
-  border-radius: 50%;
+  float: right;
+  border: 0;
   background: white;
-  color: #999;
-  font-size: 10px;
-  line-height: 10px;
-  cursor: pointer;
 }
 
 .note-delete:hover {
-  background: red;
-  color: white;
-}
-
-.note-editing {
-  font-size: 18px;
-  font-family: 'Courier New';
-  padding: 5px 10px;
+  color: red;
+  cursor: pointer;
 }

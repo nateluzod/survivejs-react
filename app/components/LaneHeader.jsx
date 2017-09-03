@@ -3,6 +3,7 @@ import uuid from 'uuid';
 import connect from '../libs/connect';
 import NoteActions from '../actions/NoteActions';
 import LaneActions from '../actions/LaneActions';
+import Editable from './Editable';
 
 export default connect(() => ({}), {
   NoteActions,
@@ -15,7 +16,7 @@ export default connect(() => ({}), {
 
     NoteActions.create({
       id: noteId,
-      task: 'New task'
+      task: 'Click to edit name'
     });
     LaneActions.attachToLane({
       laneId: lane.id,
@@ -23,12 +24,38 @@ export default connect(() => ({}), {
     });
   };
 
+  const activateLaneEdit = () => {
+    LaneActions.update({
+      id: lane.id,
+      editing: true
+    });
+  }
+
+  const editName = name => {
+    LaneActions.update({
+      id: lane.id,
+      name,
+      editing: false
+    });
+  }
+
+  const deleteLane = e => {
+    // Sin bubbloso
+    e.stopPropagation();
+
+    LaneActions.delete(lane.id);
+  };
+
   return (
-    <div className="lane-header" {...props}>
-      <div className="lane-add-note">
-        <button onClick={addNote}>+</button>
+    <div className="lane-header" onClick={activateLaneEdit} {...props}>
+      <Editable className="lane-name" editing={lane.editing}
+        value={lane.name} onEdit={editName} />
+      <div className="lane-delete">
+        <button onClick={deleteLane}>x</button>
       </div>
-      <div className="lane-name">{lane.name}</div>
+      <div className="lane-add-note">
+        <button onClick={addNote}>Add Task</button>
+      </div>
     </div>
   );
 })

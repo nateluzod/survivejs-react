@@ -8,13 +8,13 @@ const App = ({LaneActions, lanes}) => {
   const addLane = () => {
     LaneActions.create({
       id: uuid.v4(),
-      name: 'New lane'
+      name: 'Click to edit name'
     });
   };
 
   return (
     <div>
-      <button className="add-lane" onClick={addLane}>+</button>
+      <button className="add-lane" onClick={addLane}>Create a lane</button>
       <Lanes lanes={lanes} />
     </div>
   );
